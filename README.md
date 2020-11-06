@@ -2,7 +2,7 @@
 
 This is the repository for the FSE 100 class project.
 
-Class: FSE 100 at ASU during the Fall of 2020.
+Class: FSE 100 at ASU during the Fall of 2020.  
 Professor: Anthony Kuhn.
 
 ## Team:
