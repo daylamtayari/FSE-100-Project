@@ -13,9 +13,25 @@ let x3 = 90;
 let y3 = 600;
 let d3 = 125;
 
+
+//temporary booleans for challenge completion
 let temp1 = false;
 let temp2 = false;
 let temp3 = false;
+
+//Audio cue for challenge completion
+let monoSynth;
+monoSynth = new p5.MonoSynth();
+let note = 'D4';
+// note velocity (volume, from 0 to 1)
+let time = 0;
+// note duration (in seconds)
+let dur = 1/6;
+
+//temporary audio booleans to stop loop
+let audio1 = false;
+let audio2 = false;
+let audio3 = false;
 
 function setup() {
   createCanvas(1280, 720);
@@ -24,18 +40,6 @@ function setup() {
 function draw() {
   background('yellow');
       
-   
-
-  //Completion check so objects are still visible behind background
-  if (temp1 == true && temp2 == true && temp3 == true ){
-  textSize(20);
-  background('green');
-  text('You Completed The Exercise!!', 200, 650, 700, 800);
-  
-  }
-  
-  
-  
   //First Pinch Goal
   fill('white');
   strokeWeight(3);
@@ -109,7 +113,10 @@ function draw() {
   }
   if (temp1 == true) {
 text('You Completed The First Challenge', 150, 50, 700, 800);
-      textSize(20);
+      if (audio1 == false) {
+    monoSynth.play(note, 1, time, dur);
+        audio1 = true;
+      }
   }
  
   if (temp2 == false) {
@@ -117,17 +124,31 @@ text('You Completed The First Challenge', 150, 50, 700, 800);
   }
   if (temp2 == true) {
     text('You Completed The Second Challenge', 500, 400, 700, 800);
-      textSize(20);
+    if (audio2 == false) {
+    monoSynth.play(note, 1, time, dur);
+        audio2 = true;
+      }
+     
   }
   if (temp3 == false) {
     pinchGoal3();
   }
   if (temp3 == true) {
     text('You Completed The Third Challenge', 800, 650, 700, 800);
-      textSize(20);
+    if (audio3 == false) {
+    monoSynth.play('D3', 1, time, dur);
+        audio3 = true;
+      }
+     
   }
 
- 
+  
+
+  if (temp1 == true && temp2 == true && temp3 == true ){
+  textSize(20);
+  text('You Completed The Challenge!!', 200, 650, 700, 800);
+  
+  }
 }
 
 //Checks for mouse click being released
