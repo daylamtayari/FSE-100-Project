@@ -112,7 +112,8 @@ function draw() {
   pinchGoal1();
   }
   if (temp1 == true) {
-text('You Completed The First Challenge', 150, 50, 700, 800);
+    textSize(20);  
+    text('You Completed The First Challenge', 150, 50, 700, 800);
       if (audio1 == false) {
     monoSynth.play(note, 1, time, dur);
         audio1 = true;
@@ -123,6 +124,7 @@ text('You Completed The First Challenge', 150, 50, 700, 800);
     pinchGoal2();
   }
   if (temp2 == true) {
+    textSize(20);
     text('You Completed The Second Challenge', 500, 400, 700, 800);
     if (audio2 == false) {
     monoSynth.play(note, 1, time, dur);
@@ -134,6 +136,7 @@ text('You Completed The First Challenge', 150, 50, 700, 800);
     pinchGoal3();
   }
   if (temp3 == true) {
+    textSize(20);
     text('You Completed The Third Challenge', 800, 650, 700, 800);
     if (audio3 == false) {
     monoSynth.play('D3', 1, time, dur);
@@ -145,8 +148,10 @@ text('You Completed The First Challenge', 150, 50, 700, 800);
   
 
   if (temp1 == true && temp2 == true && temp3 == true ){
-  textSize(20);
+  background('green');
+    textSize(20);
   text('You Completed The Challenge!!', 200, 650, 700, 800);
+
   
   }
 }
