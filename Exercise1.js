@@ -42,37 +42,37 @@ function draw() {
 function onPath() {
   path = true;
     //First Line
-    if (mouseX > 10 && mouseX < 30 && mouseY > 10 && mouseY < 707) {
+    if (mouseX > 10 && mouseX < 30 && mouseY > 10 && mouseY < 707 && complete==false) {
       path = true;
       background('green');
     }
     //2nd Line
-    else if (mouseX > 10 && mouseX < 458 && mouseY < 710 && mouseY > 690) {
+    else if (mouseX > 10 && mouseX < 458 && mouseY < 710 && mouseY > 690 && complete==false) {
       path = true;
       background('green');
     }
     //3rd Line
-    else if (mouseX > 438 && mouseX < 460 && mouseY > 10 && mouseY < 710) {
+    else if (mouseX > 438 && mouseX < 460 && mouseY > 10 && mouseY < 710 && complete==false) {
       path = true;
       background('green');
     }
     //4th Line
-    else if (mouseX > 440 && mouseX < 890 && mouseY > 10 && mouseY < 31) {
+    else if (mouseX > 440 && mouseX < 890 && mouseY > 10 && mouseY < 31 && complete==false) {
       path = true;
       background('green');
     }
     //5th Line
-    else if (mouseX > 865 && mouseX < 890 && mouseY > 10 && mouseY < 710) {
+    else if (mouseX > 865 && mouseX < 890 && mouseY > 10 && mouseY < 710 && complete==false) {
       path = true;
       background('green');
     }
     //6th Line
-    else if (mouseX > 870 && mouseX < 1270 && mouseY > 690 && mouseY < 710) {
+    else if (mouseX > 870 && mouseX < 1270 && mouseY > 690 && mouseY < 710 && complete==false) {
       path = true;
       background('green');
     }
     //7th and FINAL Line
-    else if (mouseX > 1250 && mouseX < 1270 && mouseY > 13 && mouseY < 710) {
+    else if (mouseX > 1250 && mouseX < 1270 && mouseY > 13 && mouseY < 710 && complete==false) {
       path = true;
       background('green');
     } 
@@ -81,12 +81,14 @@ function onPath() {
       complete=true;
       audioEndTrack();
     }
-    else {
+    else if(complete==false){
       path = false;
       background('yellow');
-      audioOffTrack();
       if(frameCount % 60 == 0){
         errorCount++;
+      }
+      if(mouseX >=0 && mouseX <=1280 && mouseY>=0 && mouseY<720){
+        audioOffTrack();
       }
     }
     
