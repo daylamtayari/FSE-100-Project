@@ -16,6 +16,7 @@ function setup() {
   //Starting position for ellipse
   x = width / 2;
   y = height / 2;
+  monoSynth=new p5.MonoSynth;
 }
 
 function draw() {
@@ -71,7 +72,18 @@ function userTrack(){
     fill('yellow');
     ellipse(x,y, size, size);
     onTrack = false;
+    audioOffTrack();
   }
+}
+
+//Audio function:
+function audioOffTrack(){
+  userStartAudio();
+  let note='D3';
+  let velocity=1;
+  let time=0;
+  let duration=0.3;
+  monoSynth.play(note, velocity, time, duration);
 }
 
 //Prints on screen instructions + time
