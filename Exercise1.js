@@ -14,6 +14,7 @@ function setup() {
   textSize(40);
   fill('black');
   text('<-- start here!', 20, 20);
+  monoSynth=new p5.MonoSynth;
 }
 
 function draw() {
@@ -78,17 +79,20 @@ function onPath() {
     else if(mouseX >= 1270 && mouseY > 710){
       path=true;
       complete=true;
+      audioEndTrack();
     }
     else {
       path = false;
       background('yellow');
-      if(frameCount % 60 == 0)
-              errorCount++;
+      audioOffTrack();
+      if(frameCount % 60 == 0){
+        errorCount++;
+      }
     }
     
-    if(complete == true)
+    if(complete == true){
       background('green');
-  
+    }
     if (mouseX < 1270 && mouseX > 1250 && mouseY < 25 && mouseY > 10)
       complete = true;
 
@@ -105,6 +109,24 @@ function onPath() {
       text("Time spent off track: " + errorCount + " seconds", 465, 680);
     }
 
+  }
+
+  function audioEndTrack(){
+    userStartAudio();
+    let note='D4';
+    let velocity=1;
+    let time=0;
+    let duration=1;
+    monoSynth.play(note, velocity, time, duration);
+  }
+
+  function audioOffTrack(){
+    userStartAudio();
+    let note='D3';
+    let velocity=1;
+    let time=0;
+    let duration=0.3;
+    monoSynth.play(note, velocity, time, duration);
   }
 
   //Draws Path1
