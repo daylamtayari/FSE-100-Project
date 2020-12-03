@@ -73,16 +73,19 @@ function onPath() {
     //7th and FINAL Line
     else if (mouseX > 1250 && mouseX < 1270 && mouseY > 13 && mouseY < 710) {
       path = true;
-      complete = true;
       background('green');
-    } else {
+    } 
+    else if(mouseX >= 1270 && mouseY > 710){
+      path=true;
+      complete=true;
+    }
+    else {
       path = false;
       background('yellow');
       if(frameCount % 60 == 0)
               errorCount++;
-
     }
-  
+    
     if(complete == true)
       background('green');
   
@@ -106,6 +109,8 @@ function onPath() {
 
   //Draws Path1
   function drawPath1() {
+    
+    var i;
 
     //---------------Path1---------------
     //First line
@@ -116,92 +121,91 @@ function onPath() {
 
     //Line is invisible so cursor can follow
     //for loop to create dotted line on full line
-    for (var i = 0; i <= 50; i++) {
-      var x = lerp(x1, x2, i / 50);
-      var y = lerp(y1, y2, i / 25);
+    for (i = 0; i <= 50; i++) {
+      x = lerp(x1, x2, i / 50);
+      y = lerp(y1, y2, i / 25);
       stroke('black');
       strokeWeight(8);
       point(x, y);
     }
     //2nd line 
-    var x1 = x2;
-    var y1 = 700;
-    var x2 = x2 + intervalX;
-    var y2 = 700;
+    x1 = x2;
+    y1 = 700;
+    x2 = x2 + intervalX;
+    y2 = 700;
 
-    for (var i = 0; i <= 20; i++) {
-      var x = lerp(x1, x2, i / 20);
-      var y = lerp(y1, y2, i / 50);
+    for (i = 0; i <= 20; i++) {
+      x = lerp(x1, x2, i / 20);
+      y = lerp(y1, y2, i / 50);
       stroke('black');
       strokeWeight(8);
       point(x, y);
     }
 
     //3rd Line
-    var x1 = x2;
-    var y1 = 700;
-    var x2 = x2;
-    var y2 = 20;
+    x1 = x2;
+    y1 = 700;
+    x2 = x2;
+    y2 = 20;
 
-    for (var i = 0; i <= 50; i++) {
-      var x = lerp(x1, x2, i / 50);
-      var y = lerp(y1, y2, i / 25);
+    for (i = 0; i <= 50; i++) {
+      x = lerp(x1, x2, i / 50);
+      y = lerp(y1, y2, i / 25);
       stroke('black');
       strokeWeight(8);
       point(x, y);
     }
 
     //4th Line
-    var x1 = x2;
-    var y1 = 20;
-    var x2 = x2 + intervalX;
-    var y2 = 20;
+    x1 = x2;
+    y1 = 20;
+    x2 = x2 + intervalX;
+    y2 = 20;
 
-    for (var i = 0; i <= 20; i++) {
-      var x = lerp(x1, x2, i / 20);
-      var y = lerp(y1, y2, i / 25);
+    for (i = 0; i <= 20; i++) {
+      x = lerp(x1, x2, i / 20);
+      y = lerp(y1, y2, i / 25);
       stroke('black');
       strokeWeight(8);
       point(x, y);
     }
     //5th Line
-    var x1 = x2;
-    var y1 = 20;
-    var x2 = x2;
-    var y2 = 700;
+    x1 = x2;
+    y1 = 20;
+    x2 = x2;
+    y2 = 700;
 
-    for (var i = 0; i <= 25; i++) {
-      var x = lerp(x1, x2, i / 25);
-      var y = lerp(y1, y2, i / 25);
+    for (i = 0; i <= 25; i++) {
+      x = lerp(x1, x2, i / 25);
+      y = lerp(y1, y2, i / 25);
       stroke('black');
       strokeWeight(8);
       point(x, y);
     }
     //6th Line
-    var x1 = x2;
-    var y1 = 700;
-    var x2 = 1260; //Edge of screen
-    var y2 = 700;
+    x1 = x2;
+    y1 = 700;
+    x2 = 1260; //Edge of screen
+    y2 = 700;
 
-    for (var i = 0; i <= 20; i++) {
-      var x = lerp(x1, x2, i / 20);
-      var y = lerp(y1, y2, i / 50);
+    for (i = 0; i <= 20; i++) {
+      x = lerp(x1, x2, i / 20);
+      y = lerp(y1, y2, i / 50);
       stroke('black');
       strokeWeight(8);
       point(x, y);
     }
     //7th FINAL Line
-    var x1 = x2;
-    var y1 = 700;
-    var x2 = 1260; //Edge of screen;
-    var y2 = 20;
+    x1 = x2;
+    y1 = 700;
+    x2 = 1260; //Edge of screen;
+    y2 = 20;
 
-    for (var i = 0; i <= 50; i++) {
-      var x = lerp(x1, x2, i / 20);
-      var y = lerp(y1, y2, i / 25);
+    for (i = 0; i <= 50; i++) {
+      x = lerp(x1, x2, i / 20);
+      y = lerp(y1, y2, i / 25);
       stroke('black');
       strokeWeight(8);
       point(x, y);
     }
-
   }
